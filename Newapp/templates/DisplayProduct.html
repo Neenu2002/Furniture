@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Product Details</h4>
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead>
+                          <tr>
+<!--                            <th>-->
+<!--                              <div class="form-check form-check-muted m-0">-->
+<!--                                <label class="form-check-label">-->
+<!--                                  <input type="checkbox" class="form-check-input">-->
+<!--                                <i class="input-helper"></i></label>-->
+<!--                              </div>-->
+<!--                            </th>-->
+                            <th> Product Category </th>
+                            <th> Product Name </th>
+                            <th> Quantity </th>
+                            <th> Price </th>
+                            <th> Description </th>
+                            <th> Country of Origin  </th>
+                            <th> Manufactured By </th>
+                              <th> Image1 </th>
+                              <th> Image2 </th>
+                              <th> Image3 </th>
+                            <th> Actions </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                         {% for i in pro %}
+                          <tr>
+<!--                            <td>-->
+<!--                              <div class="form-check form-check-muted m-0">-->
+<!--                                <label class="form-check-label">-->
+<!--                                  <input type="checkbox" class="form-check-input">-->
+<!--                                <i class="input-helper"></i></label>-->
+<!--                              </div>-->
+<!--                            </td>-->
+                             <td>{{i.Product_Category}} </td>
+                               <td>{{i.Product_Name}} </td>
+                               <td>{{i.Quantity}} </td>
+                               <td>{{i.Price}} </td>
+                               <td> {{i.Description}} </td>
+                               <td> {{i.Country_of_origin}} </td>
+                              <td>{{i.Manufactured_by}} </td>
+
+                            <td>
+                              <img src="{{i.Image1.url}}" height="200px" width="200px"  alt="image">
+
+                            </td>
+                              <td>
+                              <img src="{{i.Image2.url}}" height="200px" width="200px"  alt="image">
+
+                            </td>
+                              <td>
+                              <img src="{{i.Image3.url}}" height="200px" width="200px"  alt="image">
+
+                            </td>
+
+
+<!--                            <td> {{i.Description}} </td>-->
+<!--                            <td> Dashboard </td>-->
+<!--                            <td> Credit card </td>-->
+<!--                            <td> 04 Dec 2019 </td>-->
+                            <td>
+                              <a class="btn btn-sm btn-success" href="{% url 'edit_product' proid=i.id %}"> Edit</a>
+                                 <a class="btn btn-sm btn-danger" href="{% url 'delete_product' proid=i.id %}">Delete</a>
+                            </td>
+
+                          </tr>
+                          {% endfor %}
+<!--                          <tr>-->
+<!--                            <td>-->
+<!--                              <div class="form-check form-check-muted m-0">-->
+<!--                                <label class="form-check-label">-->
+<!--                                  <input type="checkbox" class="form-check-input">-->
+<!--                                <i class="input-helper"></i></label>-->
+<!--                              </div>-->
+<!--                            </td>-->
+<!--                            <td>-->
+<!--                              <img src="assets/images/faces/face2.jpg" alt="image">-->
+<!--                              <span class="pl-2">Estella Bryan</span>-->
+<!--                            </td>-->
+<!--                            <td> 02312 </td>-->
+<!--                            <td> $14,500 </td>-->
+<!--                            <td> Website </td>-->
+<!--                            <td> Cash on delivered </td>-->
+<!--                            <td> 04 Dec 2019 </td>-->
+<!--                            <td>-->
+<!--                              <div class="badge badge-outline-warning">Pending</div>-->
+<!--                            </td>-->
+<!--                          </tr>-->
+
+<!--                          <tr>-->
+<!--                            <td>-->
+<!--                              <div class="form-check form-check-muted m-0">-->
+<!--                                <label class="form-check-label">-->
+<!--                                  <input type="checkbox" class="form-check-input">-->
+<!--                                <i class="input-helper"></i></label>-->
+<!--                              </div>-->
+<!--                            </td>-->
+<!--                            <td>-->
+<!--                              <img src="assets/images/faces/face5.jpg" alt="image">-->
+<!--                              <span class="pl-2">Lucy Abbott</span>-->
+<!--                            </td>-->
+<!--                            <td> 02312 </td>-->
+<!--                            <td> $14,500 </td>-->
+<!--                            <td> App design </td>-->
+<!--                            <td> Credit card </td>-->
+<!--                            <td> 04 Dec 2019 </td>-->
+<!--                            <td>-->
+<!--                              <div class="badge badge-outline-danger">Rejected</div>-->
+<!--                            </td>-->
+<!--                          </tr>-->
+<!--                          <tr>-->
+<!--                            <td>-->
+<!--                              <div class="form-check form-check-muted m-0">-->
+<!--                                <label class="form-check-label">-->
+<!--                                  <input type="checkbox" class="form-check-input">-->
+<!--                                <i class="input-helper"></i></label>-->
+<!--                              </div>-->
+<!--                            </td>-->
+<!--                            <td>-->
+<!--                              <img src="assets/images/faces/face3.jpg" alt="image">-->
+<!--                              <span class="pl-2">Peter Gill</span>-->
+<!--                            </td>-->
+<!--                            <td> 02312 </td>-->
+<!--                            <td> $14,500 </td>-->
+<!--                            <td> Development </td>-->
+<!--                            <td> Online Payment </td>-->
+<!--                            <td> 04 Dec 2019 </td>-->
+<!--                            <td>-->
+<!--                              <div class="badge badge-outline-success">Approved</div>-->
+<!--                            </td>-->
+<!--                          </tr>-->
+<!--                          <tr>-->
+<!--                            <td>-->
+<!--                              <div class="form-check form-check-muted m-0">-->
+<!--                                <label class="form-check-label">-->
+<!--                                  <input type="checkbox" class="form-check-input">-->
+<!--                                <i class="input-helper"></i></label>-->
+<!--                              </div>-->
+<!--                            </td>-->
+<!--                            <td>-->
+<!--                              <img src="assets/images/faces/face4.jpg" alt="image">-->
+<!--                              <span class="pl-2">Sallie Reyes</span>-->
+<!--                            </td>-->
+<!--                            <td> 02312 </td>-->
+<!--                            <td> $14,500 </td>-->
+<!--                            <td> Website </td>-->
+<!--                            <td> Credit card </td>-->
+<!--                            <td> 04 Dec 2019 </td>-->
+<!--                            <td>-->
+<!--                              <div class="badge badge-outline-success">Approved</div>-->
+<!--                            </td>-->
+<!--                          </tr>-->
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+</body>
+</html>
+{% endblock %}

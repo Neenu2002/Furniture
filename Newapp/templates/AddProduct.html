@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="POST" action="{% url 'save_product' %}" enctype="multipart/form-data">
+  {% csrf_token %}
+<div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Add New Products..</h4>
+<!--                    <p class="card-description"> Basic form elements </p>-->
+                    <form class="forms-sample">
+                        <div class="form-group">
+                        <label for="exampleSelectGender">Product Category</label>
+                        <select class="form-control" id="exampleSelectGender" name="p_cat">
+                            {% for i in cat %}
+                          <option>{{i.Category_Name}}</option>
+                            {% endfor %}
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputName1">Product Name</label>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Name of the product" name="p_name">
+                      </div>
+                        <div class="form-group">
+                        <label for="exampleInputName1">Quantity</label>
+                        <input type="number" class="form-control" id="exampleInputName1" placeholder="quantity" name="p_quant">
+                      </div>
+                         <div class="form-group">
+                        <label for="exampleInputName1">Price</label>
+                        <input type="number" class="form-control" id="exampleInputName1" placeholder="price" name="p_price">
+                      </div>
+<!--                      <div class="form-group">-->
+<!--                        <label for="exampleInputEmail3">Email address</label>-->
+<!--                        <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">-->
+<!--                      </div>-->
+<!--                      <div class="form-group">-->
+<!--                        <label for="exampleInputPassword4">Password</label>-->
+<!--                        <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">-->
+<!--                      </div>-->
+
+
+                        <div class="form-group">
+                        <label for="exampleTextarea1">Description</label>
+                        <textarea class="form-control" id="exampleTextarea1" rows="4" name="p_desc">Description</textarea>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputCity1">Country of Origin</label>
+                        <input type="text" class="form-control" id="exampleInputCity1" placeholder="country of origin" name="p_coo">
+                      </div>
+                        <div class="form-group">
+                        <label for="exampleInputName1">Manufactured by</label>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Manufactured by" name="p_manu">
+                      </div>
+                         <div class="form-group">
+
+                                <label for="formFileMultiple" class="form-label">Add Image1</label>
+                                <input class="form-control" type="file" id="formFileMultiple" multiple="" name="p_imgfirst">
+                      </div>
+                        <div class="form-group">
+
+                                <label for="formFileMultiple" class="form-label">Add Image2</label>
+                                <input class="form-control" type="file" id="formFileMultiple" multiple="" name="p_imgsecond">
+                      </div>
+                        <div class="form-group">
+
+                                <label for="formFileMultiple" class="form-label">Add Image3</label>
+                                <input class="form-control" type="file" id="formFileMultiple" multiple="" name="p_imgthird">
+                      </div>
+
+                      <button type="submit" class="btn btn-primary mr-2">Add</button>
+<!--                      <button class="btn btn-dark">Cancel</button>-->
+                    </form>
+                  </div>
+                </div>
+</form>
+</body>
+</html>
+{% endblock %}
